@@ -2,7 +2,7 @@ from scrapy.spiders import BaseSpider
 from scrapy import Selector
 
 import urllib
-import urlparse
+from urllib.parse import urlparse
 
 from piratebay.items import UniversalItem
 
