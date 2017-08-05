@@ -1,0 +1,9 @@
+The Torrents Websites that can be crawled using this crawler
+
+-PirateBay
+-Leetx
+-torrentDownload
+-Kickasstorrent
+-skidrowCrack
+-sumotorrent
+-Bitsnoop

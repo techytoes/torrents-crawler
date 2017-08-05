@@ -6,6 +6,7 @@ from urllib.parse import urlparse
 
 from piratebay.items import UniversalItem
 
+#Spider for PirateBay
 class PiratebaySpider(BaseSpider):
     name = "piratebay"
     allowed_domains = ["thepiratebay.org"]
@@ -22,6 +23,7 @@ class PiratebaySpider(BaseSpider):
             item['ref'] = "thepiratebay.org"
             yield item
 
+#Spider for KickassTorrent
 class KickassSpider(BaseSpider):
     name = "kickass"
     allowed_domains = ["kickass.io"]
@@ -38,6 +40,7 @@ class KickassSpider(BaseSpider):
             item['ref'] = "kickass.io"
             yield item
 
+#Spider for Leetx
 class LeetxSpider(BaseSpider):
     name = "leetx"
     allowed_domains = ["1337x.org"]
@@ -54,6 +57,7 @@ class LeetxSpider(BaseSpider):
             item['ref'] = "1337x.org"
             yield item
 
+#Spider for SkidrowCrack
 class SkidrowCrackSpider(BaseSpider):
     name = "skidrowcrack"
     allowed_domains = ["skidrowcrack.com"]
@@ -70,6 +74,7 @@ class SkidrowCrackSpider(BaseSpider):
             item['ref'] = "skidrowcrack.com"
             yield item
 
+#Spider for TorrentDownload
 class TorrentDownloadsSpider(BaseSpider):
     name = "torrentdownloads"
     allowed_domains = ["torrentdownloads.me"]
@@ -87,6 +92,7 @@ class TorrentDownloadsSpider(BaseSpider):
             item['ref'] = "torrentdownloads.me"
             yield item
 
+#Spider for SumoTorrent
 class SumoTorrentSpider(BaseSpider):
     name = "sumotorrent"
     allowed_domains = ["sumotorrent.sx"]
@@ -103,6 +109,7 @@ class SumoTorrentSpider(BaseSpider):
             item['ref'] = "sumotorrent.sx"
             yield item
 
+#Spider for Bitsnoop
 class BitSnoopSpider(BaseSpider):
     name = "bitsnoop"
     allowed_domains = ["bitsnoop.com"]
