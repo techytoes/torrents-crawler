@@ -23,38 +23,21 @@ class PiratebaySpider(BaseSpider):
             item['ref'] = "thepiratebay.org"
             yield item
 
-#Spider for KickassTorrent
-class KickassSpider(BaseSpider):
-    name = "kickass"
-    allowed_domains = ["kickass.io"]
-    with open('links/kickass.txt', 'r') as file:
-        start_urls = [i.strip() for i in file.readlines()]
-
-    def parse(self, response):
-        hxs = HtmlXPathSelector(response)
-        sites = hxs.select('//div[@class="torrentname"]')
-        for site in sites:
-            item = UniversalItem()
-            item['title'] = site.select('a[2]/text()').extract()[0]
-            item['link'] = "http://kickass.to" + site.select('a/@href').extract()[0]
-            item['ref'] = "kickass.io"
-            yield item
-
 #Spider for Leetx
 class LeetxSpider(BaseSpider):
     name = "leetx"
-    allowed_domains = ["1337x.org"]
+    allowed_domains = ["1337x.to"]
     with open('links/leetx.txt', 'r') as file:
         start_urls = [i.strip() for i in file.readlines()]
 
     def parse(self, response):
         hxs = Selector(response)
-        sites = hxs.xpath('//h3[@class="org"]')
+        sites = hxs.xpath('//h3[@class="to"]')
         for site in sites:
             item = UniversalItem()
             item['title'] = site.xpath('a/text()').extract()[0]
-            item['link'] = "http://1337x.org" + site.xpath('a/@href').extract()[0]
-            item['ref'] = "1337x.org"
+            item['link'] = "https://1337x.to" + site.xpath('a/@href').extract()[0]
+            item['ref'] = "1337x.to"
             yield item
 
 #Spider for SkidrowCrack
