@@ -14,6 +14,7 @@ This is a scrapy project in which I have implemented several crawlers for differ
 - TorrentDownloads
 - SumoTorrent
 - BitSnoop
+- bt.etree
 
 ###How to run a crawler:
 If you want to run a crawler then goto the top level directory which is ```piratebay``` and issue this command:
@@ -27,6 +28,7 @@ Names for all of the crawlers are:
 - torrentdownloads
 - kickass
 - skidrowcrack
+- btetree
 
 ###TODO:
 Currently I have not added any pipeline so right now if we want to save the crawled data we will have to issue one of the following commands:
@@ -41,6 +43,7 @@ If you want to add further support for some more websites then feel free to edit
 
 ###Author:
 - M.Yasoob Ullah Khalid (yasoob.khld@gmail.com)
+- Rupesh Harode (rupeshharode@gmail.com)
 
 ###Support:
 [Official scrapy docs](http://doc.scrapy.org/en/latest/intro/tutorial.html)
