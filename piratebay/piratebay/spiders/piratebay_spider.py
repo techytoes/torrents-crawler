@@ -10,21 +10,8 @@ from piratebay.items import UniversalItem
 #Spider for PirateBay
 class PiratebaySpider(BaseSpider):
     name = "piratebay"
-#    allowed_domains = ["thepiratebay.org"]
-#    with open('links/piratebay.txt', 'r') as file:
-#        start_urls = [i.strip() for i in file.readlines()]
-
-    def start_requests(self):
-        allowed_domains = ["thepiratebay.org"]
-        with open('links/piratebay.txt', 'r') as file:
-            start_urls = [i.strip() for i in file.readlines()]
-        cf_requests = []
-        for url in self.start_urls:
-            token, agent = cfscrape.get_tokens(url, 'Your prefarable user agent, _optional_')
-            cf_requests.append(Request(url=url,
-                            cookies={'__cfduid': token['__cfduid']},
-                            headers={'User-Agent': agent}))
-        return cf_requests
+    with open('links/piratebay.txt', 'r') as file:
+        start_urls = [i.strip() for i in file.readlines()]
 
     def parse(self, response):
         hxs = Selector(response)
@@ -140,18 +127,26 @@ class bitsnoop(BaseSpider):
 
 class btetree(BaseSpider):
     name = "btetree"
-    start_urls = [
-        "http://bt.etree.org/index.php?page=0"
-    ]
+    allowed_domains = ["bt.etree.org"]
+    with open('links/btetree.txt', 'r') as file:
+        start_urls = [i.strip() for i in file.readlines()]
+
     def parse(self, response):
         for response in response.css("a.details_link"):
             yield{
                 'text' : response.css("b::text").extract_first()
             }
-        nextpage = response.css("p a::attr(href)").extract_first()
-        if nextpage is not None:
-            nextpage = response.urljoin(nextpage)
-            yield scrapy.Request(nextpage,callback = self.parse)
+
+class gameUpdates(BaseSpider):
+    name = "gameup"
+    start_urls=[
+        "http://gameupdates.org/index.php?page=0"
+    ]
+    def parse(self, response):
+        for response in response.css("table.niceBox"):
+            yield{
+                'text' : response.css("tr td a::text").extract_first()
+            }
 
 def url_fix(s, charset='utf-8'):
     if isinstance(s, unicode):

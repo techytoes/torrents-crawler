@@ -1,0 +1,7 @@
+http://bt.etree.org/index.php?page=0
+http://bt.etree.org/index.php?page=50
+http://bt.etree.org/index.php?page=100
+http://bt.etree.org/index.php?page=150
+http://bt.etree.org/index.php?page=200
+http://bt.etree.org/index.php?page=250
+http://bt.etree.org/index.php?page=300
