@@ -139,13 +139,14 @@ class btetree(BaseSpider):
 
 class gameUpdates(BaseSpider):
     name = "gameup"
-    start_urls=[
-        "http://gameupdates.org/index.php?page=0"
-    ]
+    allowed_domains = ["http://gameupdates,org"]
+    with open('links/gameup.txt', 'r') as file:
+        start_urls = [i.strip() for i in file.readlines()]
+
     def parse(self, response):
-        for xyz in response.css("div.textBox table.niceBox"):
+        for response in response.css("div.textBox table.niceBox"):
             yield{
-                'text' : xyz.css("a.index::attr(title)").extract_first()
+                'text' : response.css("tr td a.index::attr(title)").extract_first()
             }
 
 class mediaccc(BaseSpider):
