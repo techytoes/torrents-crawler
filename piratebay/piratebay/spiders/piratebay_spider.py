@@ -143,9 +143,21 @@ class gameUpdates(BaseSpider):
         "http://gameupdates.org/index.php?page=0"
     ]
     def parse(self, response):
-        for response in response.css("table.niceBox"):
+        for xyz in response.css("div.textBox table.niceBox"):
             yield{
-                'text' : response.css("tr td a::text").extract_first()
+                'text' : xyz.css("a.index::attr(title)").extract_first()
+            }
+
+class mediaccc(BaseSpider):
+    name = "mediaccc"
+    allowed_domains = ["https://media.ccc.de/"]
+    with open('links/mediaccc.txt', 'r') as file:
+        start_urls = [i.strip() for i in file.readlines()]
+    
+    def parse(self, response):
+        for response in response.css("div.caption"):
+            yield{
+                'text' : response.css("h3 a::text").extract_first()
             }
 
 def url_fix(s, charset='utf-8'):
