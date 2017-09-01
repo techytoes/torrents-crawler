@@ -144,9 +144,9 @@ class gameUpdates(BaseSpider):
         start_urls = [i.strip() for i in file.readlines()]
 
     def parse(self, response):
-        for response in response.css("div.textBox table.niceBox"):
+        for response in response.css("table.niceBox"):
             yield{
-                'text' : response.css("tr td a.index::attr(title)").extract_first()
+                'text' : response.css("a.index::attr(title)").extract()
             }
 
 class mediaccc(BaseSpider):
