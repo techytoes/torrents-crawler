@@ -18,6 +18,7 @@ This is a scrapy project in which I have implemented several crawlers for differ
 - media.ccc
 - LinuxTracker
 - Yts.ag
+- eztv.ag
 
 ###How to run a crawler:
 If you want to run a crawler then goto the top level directory which is ```piratebay``` and issue this command:
@@ -35,6 +36,7 @@ Names for all of the crawlers are:
 - mediaccc
 - linuxtracker
 - yts
+- eztv
 
 ###TODO:
 Currently I have not added any pipeline so right now if we want to save the crawled data we will have to issue one of the following commands:
