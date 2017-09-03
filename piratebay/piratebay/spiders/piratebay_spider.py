@@ -186,6 +186,7 @@ class linuxTracker(BaseSpider):
                 'text' : response.css("a::text").extract_first()
             }
 
+#Spider for yts.ag
 class yts(BaseSpider):
     name = "yts"
     allowed_domains = ["https://yts.ag/"]
