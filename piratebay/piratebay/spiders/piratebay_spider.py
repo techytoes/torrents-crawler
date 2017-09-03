@@ -1,7 +1,7 @@
 from scrapy.spiders import BaseSpider
 from scrapy import Selector
 
-import urllib
+import urllib.parse
 import cfscrape
 from urllib.parse import urlparse
 
@@ -160,6 +160,19 @@ class mediaccc(BaseSpider):
             yield{
                 'text' : response.css("h3 a::text").extract_first()
             }
+
+class legittorrents(BaseSpider):
+    name = "legittorrent"
+    allowed_domains = ["legittorrents.info"]
+    with open('links/legittorrents.txt', 'r') as file:
+        start_urls = [i.strip() for i in file.readlines()]
+    
+    def parse(self, response):
+        for site in response.css("table.lista tr td.lista"):
+            yield{
+                'text' : site.css("a::text").extract_first()
+            }
+
 
 def url_fix(s, charset='utf-8'):
     if isinstance(s, unicode):
