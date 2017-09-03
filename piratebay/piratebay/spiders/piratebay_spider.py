@@ -206,9 +206,9 @@ class yts(BaseSpider):
 #Spider for eztv.ag
 class eztv(BaseSpider):
     name = "eztv"
-    start_urls = [
-        "https://eztv.ag/page_0"
-    ]
+    allowed_domains = ["https://eztv.ag/"]
+    with open('links/eztv.txt', 'r') as file:
+        start_urls = [i.strip() for i in file.readlines()]
 
     def parse(self, response):
         for response in response.css("table.forum_header_border tr.forum_header_border"):
