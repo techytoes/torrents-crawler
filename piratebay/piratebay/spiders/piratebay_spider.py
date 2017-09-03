@@ -188,9 +188,9 @@ class linuxTracker(BaseSpider):
 
 class yts(BaseSpider):
     name = "yts"
-    start_urls = [
-        "https://yts.ag/browse-movies"
-    ]
+    allowed_domains = ["https://yts.ag/"]
+    with open('links/yts.txt', 'r') as file:
+        start_urls = [i.strip() for i in file.readlines()]
 
     def parse(self, response):
         for response in response.css("div.row div.browse-movie-bottom"):
