@@ -198,6 +198,17 @@ class yts(BaseSpider):
             yield{
                 'text' : response.css("a.browse-movie-title::text").extract_first()
             }
+class eztv(BaseSpider):
+    name = "eztv"
+    start_urls = [
+        "https://eztv.ag/page_0"
+    ]
+
+    def parse(self, response):
+        for response in response.css("table.forum_header_border tr.forum_header_border"):
+            yield{
+                'text' : response.css("a.epinfo::text").extract_first()
+            }
 
 def url_fix(s, charset='utf-8'):
     if isinstance(s, unicode):
