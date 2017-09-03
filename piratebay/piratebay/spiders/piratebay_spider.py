@@ -176,10 +176,9 @@ class legittorrents(BaseSpider):
 #Spider for LinuxTracker
 class linuxTracker(BaseSpider):
     name = 'linuxtracker'
-
-    start_urls=[
-        "http://linuxtracker.org/index.php?page=torrents&active=1&order=3&by=2&pages=1"
-    ]
+    allowed_domains = ["http://linuxtracker.org/"]
+    with open('links/linuxtracker.txt', 'r') as file:
+        start_urls = [i.strip() for i in file.readlines()]
 
     def parse(self, response):
         for response in response.css("div.block-content-r font strong"):
