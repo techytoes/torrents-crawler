@@ -144,9 +144,9 @@ class gameUpdates(BaseSpider):
         start_urls = [i.strip() for i in file.readlines()]
 
     def parse(self, response):
-        for response in response.css("table.niceBox"):
+        for response in response.css("div.textBox table.niceBox"):
             yield{
-                'text' : response.css("a.index::attr(title)").extract()
+                'text' : response.css("a.index::attr(title)").extract_first()
             }
 
 class mediaccc(BaseSpider):
@@ -186,6 +186,17 @@ class linuxTracker(BaseSpider):
                 'text' : response.css("a::text").extract_first()
             }
 
+class yts(BaseSpider):
+    name = "yts"
+    start_urls = [
+        "https://yts.ag/browse-movies"
+    ]
+
+    def parse(self, response):
+        for response in response.css("div.row div.browse-movie-bottom"):
+            yield{
+                'text' : response.css("a.browse-movie-title::text").extract_first()
+            }
 
 def url_fix(s, charset='utf-8'):
     if isinstance(s, unicode):

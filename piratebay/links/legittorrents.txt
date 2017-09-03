@@ -1,1 +1,4 @@
-http://www.legittorrents.info/index.php?page=torrents&active=1&order=3&by=2&pages=1git
+http://www.legittorrents.info/index.php?page=torrents&active=1&order=3&by=2&pages=1
+http://www.legittorrents.info/index.php?page=torrents&active=1&order=3&by=2&pages=2
+http://www.legittorrents.info/index.php?page=torrents&active=1&order=3&by=2&pages=3
+http://www.legittorrents.info/index.php?page=torrents&active=1&order=3&by=2&pages=4
