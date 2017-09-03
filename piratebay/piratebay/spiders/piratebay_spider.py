@@ -173,6 +173,20 @@ class legittorrents(BaseSpider):
                 'text' : site.css("a::text").extract_first()
             }
 
+#Spider for LinuxTracker
+class linuxTracker(BaseSpider):
+    name = 'linuxtracker'
+
+    start_urls=[
+        "http://linuxtracker.org/index.php?page=torrents&active=1&order=3&by=2&pages=1"
+    ]
+
+    def parse(self, response):
+        for response in response.css("div.block-content-r font strong"):
+            yield{
+                'text' : response.css("a::text").extract_first()
+            }
+
 
 def url_fix(s, charset='utf-8'):
     if isinstance(s, unicode):
