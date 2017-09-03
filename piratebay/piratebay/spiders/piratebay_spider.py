@@ -125,6 +125,7 @@ class bitsnoop(BaseSpider):
             item['ref'] = "bitsnoop.mobi"
             yield item
 
+#Spider for bt.etree
 class btetree(BaseSpider):
     name = "btetree"
     allowed_domains = ["bt.etree.org"]
@@ -137,6 +138,7 @@ class btetree(BaseSpider):
                 'text' : response.css("b::text").extract_first()
             }
 
+#Spider for gameupdates
 class gameUpdates(BaseSpider):
     name = "gameup"
     allowed_domains = ["http://gameupdates,org"]
@@ -149,6 +151,7 @@ class gameUpdates(BaseSpider):
                 'text' : response.css("a.index::attr(title)").extract_first()
             }
 
+#Spider for media.ccc
 class mediaccc(BaseSpider):
     name = "mediaccc"
     allowed_domains = ["https://media.ccc.de/"]
@@ -161,6 +164,7 @@ class mediaccc(BaseSpider):
                 'text' : response.css("h3 a::text").extract_first()
             }
 
+#Spider for legittorrents
 class legittorrents(BaseSpider):
     name = "legittorrent"
     allowed_domains = ["legittorrents.info"]
@@ -198,6 +202,8 @@ class yts(BaseSpider):
             yield{
                 'text' : response.css("a.browse-movie-title::text").extract_first()
             }
+
+#Spider for eztv.ag
 class eztv(BaseSpider):
     name = "eztv"
     start_urls = [
