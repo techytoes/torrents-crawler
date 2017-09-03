@@ -54,7 +54,9 @@ If you want to add further support for some more websites then feel free to edit
 - Rupesh Harode (rupeshharode@gmail.com)
 
 ###Support:
-[Official scrapy docs](http://doc.scrapy.org/en/latest/intro/tutorial.html)
+- [Official scrapy docs](http://doc.scrapy.org/en/latest/intro/tutorial.html)
+- [Tutorials point docs](https://www.tutorialspoint.com/scrapy/)
+
 If there is an issue with the scripts present here do open an issue or if you want me to add support for a website do tell me.
 
 ###Contribute:
