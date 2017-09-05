@@ -8,7 +8,6 @@ This is a scrapy project in which I have implemented several crawlers for differ
 
 ###Websites currently supported:
 - Piratebay
-- Kickass
 - 1337x
 - SkidrowCrack
 - TorrentDownloads
